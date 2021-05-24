@@ -69,4 +69,4 @@ stages:
               azureSubscription: 'Free Trial ($(azureSubscription))'
               appType: 'webApp'
               WebAppName: 'java-spring-boot-1'
-              packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
