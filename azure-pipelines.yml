@@ -63,10 +63,10 @@ stages:
             inputs:
               buildType: 'current'
 
-          - task: AzureRmWebAppDeployment@4
+          - task: AzureWebApp@1
+            displayName: 'Azure Web App Deploy: gs-spring-boot'
             inputs:
-              ConnectionType: 'AzureRM'
-              azureSubscription: 'Free Trial ($(azureSubscription))'
-              appType: 'webApp'
-              WebAppName: 'java-spring-boot-1'
-              packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.jar'
+              azureSubscription: $(azureSubscription)
+              appType: webAppLinux
+              appName: $(webAppName)
+              package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
