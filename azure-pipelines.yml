@@ -12,7 +12,7 @@ variables:
   azureSubscription: '22b7b6b9-3e25-4858-889b-179ba362858c'
   
   # Web app name
-  webAppName: 'java-spring-boot-1'
+  webAppName: 'java-spring-boot'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -64,7 +64,7 @@ stages:
               buildType: 'current'
 
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: gs-spring-boot'
+            displayName: 'Azure Web App Deploy: java-spring-boot-1'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
