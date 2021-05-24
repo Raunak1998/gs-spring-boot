@@ -12,7 +12,7 @@ variables:
   azureSubscription: '22b7b6b9-3e25-4858-889b-179ba362858c'
   
   # Web app name
-  webAppName: 'java-spring-boot'
+  webAppName: 'java-spring-boot-1'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -63,10 +63,12 @@ stages:
             inputs:
               buildType: 'current'
 
-          - task: AzureWebApp@1
+          - task: AzureRmWebAppDeployment@4
             displayName: 'Azure Web App Deploy: java-spring-boot-1'
             inputs:
-              azureSubscription: $(azureSubscription)
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Free Trial ($(azureSubscription))'
               appType: webAppLinux
-              appName: $(webAppName)
+              WebAppName: $(webAppName)
               package: '$(System.ArtifactsDirectory)/drop/**/target/*.?(war|jar)'
+
